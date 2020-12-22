@@ -1,0 +1,17 @@
+server:
+  port: 9000
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: path_route
+          uri: http://httpbin.org
+          predicates:
+            - Path=/anything/{segment}
+        - id: path_route_lb
+          uri: lb://my-ribbon-httpbin
+          predicates:
+            - Path=/anything/renho/{segment}
+my-ribbon-httpbin:
+  ribbon:
+    listOfServers: http://httpbin.org
