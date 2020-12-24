@@ -1,5 +1,6 @@
 package com.renho.springcloud.demo.gateway.registry.config;
 
+import com.alibaba.cloud.nacos.ribbon.RibbonNacosAutoConfiguration;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -17,7 +18,7 @@ import org.springframework.context.annotation.Configuration;
 @ConditionalOnBean(SpringClientFactory.class)
 //@ConditionalOnRibbonNacos
 //@ConditionalOnNacosDiscoveryEnabled
-@AutoConfigureAfter(RibbonAutoConfiguration.class)
+@AutoConfigureAfter({RibbonAutoConfiguration.class, RibbonNacosAutoConfiguration.class})
 @RibbonClients(defaultConfiguration = RenhoRibbonClientConfiguration.class)
 public class RibbonRenhoAutoConfiguration {
 }

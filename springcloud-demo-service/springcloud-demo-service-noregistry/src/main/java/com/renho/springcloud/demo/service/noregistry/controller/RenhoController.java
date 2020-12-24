@@ -1,6 +1,7 @@
 package com.renho.springcloud.demo.service.noregistry.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,12 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2020/12/22
  */
 @RestController
-@RequestMapping("/renho")
+@RequestMapping("/anything")
 public class RenhoController {
 
-    @GetMapping
-    public String test() {
-        return "noregistry.RenhoController.test";
+    @GetMapping("/{any}")
+    public String test(@PathVariable String any) {
+        return "noregistry.RenhoController.test( /anything/" + any + " )";
     }
 
 }
