@@ -8,6 +8,7 @@
         <module>springcloud-demo-gateway</module>
         <module>springcloud-demo-service</module>
         <module>springcloud-demo-nacos</module>
+        <module>springcloud-demo-framework</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
